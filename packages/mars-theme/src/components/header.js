@@ -18,6 +18,21 @@ const Header = ({ state }) => {
   );
 };
 
+// componentDidMount =() => {
+//   // Simple GET request using fetch
+//   fetch("https://staging.wizarts.be/wp-json/namespace/page/rest-api-test-page")
+//       .then(response => response.json())
+//       .then(data => this.setState({ totalReactPackages: data.total }));
+//       console.log(data);
+// }
+
+
+const MyComp = ({ state }) => {
+  const options = state.source.get("acf-options-page");
+  console.log(options);
+  return <div>...</div>;
+}
+
 // Connect the Header component to get access to the `state` in it's `props`
 export default connect(Header);
 

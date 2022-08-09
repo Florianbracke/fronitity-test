@@ -2,6 +2,7 @@ import Theme from "./components";
 import image from "@frontity/html2react/processors/image";
 import iframe from "@frontity/html2react/processors/iframe";
 import link from "@frontity/html2react/processors/link";
+import menuHandler from "./components/handlers/menu-handler";
 
 const marsTheme = {
   name: "@frontity/mars-theme",
@@ -17,9 +18,10 @@ const marsTheme = {
      * State is where the packages store their default settings and other
      * relevant state. It is scoped to the `theme` namespace.
      */
-    theme: {
+     theme: {
       autoPrefetch: "in-view",
       menu: [],
+      menuUrl: "menu-1",
       isMobileMenuOpen: false,
       featured: {
         showOnList: false,
@@ -40,7 +42,10 @@ const marsTheme = {
       closeMobileMenu: ({ state }) => {
         state.theme.isMobileMenuOpen = false;
       },
-    },
+      beforeSSR: async ({ state, actions }) => {
+        await actions.source.fetch(`/menu/${state.theme.menuUrl}/`);
+      },
+    }
   },
   libraries: {
     html2react: {
@@ -50,6 +55,9 @@ const marsTheme = {
        * You can add your own processors too.
        */
       processors: [image, iframe, link],
+    },
+    source: {
+      handlers: [menuHandler],
     },
   },
 };
