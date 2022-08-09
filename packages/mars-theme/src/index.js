@@ -45,6 +45,10 @@ const marsTheme = {
       beforeSSR: async ({ state, actions }) => {
         await actions.source.fetch(`/menu/${state.theme.menuUrl}/`);
       },
+      beforeSSR: async ({ state, actions }) => {
+        await actions.source.fetch(`/namespace/page/rest-api-test-page`);
+      },
+        
     }
   },
   libraries: {

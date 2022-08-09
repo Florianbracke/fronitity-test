@@ -22,7 +22,7 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "https://staging.wizarts.be"
+          "url": "https://staging.wizarts.be/"
         }
       }
     },

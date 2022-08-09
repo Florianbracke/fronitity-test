@@ -3,12 +3,15 @@ import Link from "./link";
 import Nav from "./nav";
 import MobileMenu from "./menu";
 
+
+
 const Header = ({ state }) => {
   return (
     <>
       <Container>
         <StyledLink link="/">
           <Title>{state.frontity.title}</Title>
+          
         </StyledLink>
         <Description>{state.frontity.description}</Description>
         <MobileMenu />
